@@ -1,0 +1,31 @@
+version: '3.7'
+
+services:
+  postgres:
+      image: postgres:14-alpine
+      restart: always
+      command: postgres
+      environment:
+        - POSTGRES_PASSWORD=postgres
+      ports:
+        - 9142:5432
+      volumes: 
+        - ./database/data.csv:/populate/data.csv
+        - ./database/init_db.sql:/docker-entrypoint-initdb.d/init_db.sql
+
+#   rabbitmq:
+#     image: rabbitmq:3.9.13-management-alpine
+#     restart: always
+#     environment:
+#       - "RABBITMQ_DEFAULT_PASS=hammerspace"
+#       - "RABBITMQ_DEFAULT_USER=hammerspace"
+#     ports:
+#       # - 27072:27072
+#       - 15672:15672
+#       - 5672:5672
+#     networks:
+#       - rabbitmq_network
+
+# networks:
+#   rabbitmq_network:
+#     driver: bridge
