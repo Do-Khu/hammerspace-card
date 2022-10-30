@@ -19,3 +19,58 @@ Atualmente a aplicação possui 2 microsserviços:
 
 - **[api-gateway](https://github.com/Do-Khu/hammerspace-api)**: a porta de entrada da aplicação, todas as iterações externas devem ser feitas à esse microserviço que irá chamar os demais necessários para realizar os comandos requisitados. Atualmente está realizando o controle de: *Usuários*.
 - **[cards](https://github.com/Do-Khu/hammerspace-card)**: Microsserviço de consulta de cartas de magic.
+
+## Consumindo o Serviço
+
+### GET api/cards
+
+Listagem de todos os cards cadastrados na aplicação. (Não Paginada)
+População de dados provinda do Scryfall.
+Exemplo de retorno:
+
+``` JSON
+[
+    {
+    "id": 0,
+    "imglink": "https://cards.scryfall.io/png/front/3/0/309a6684-ecb3-491c-899a-3aa15a51130b.png?1658363316",
+    "cardname": "Cryptic Spires",
+    "coloridentity": "I",
+    "isvalid": true
+    },
+]
+```
+
+### GET api/cards/:id
+
+Dados de um card com base no id informado. (Não Paginada)
+População de dados provinda do Scryfall.
+Exemplo de retorno:
+
+``` JSON
+[
+    {
+    "id": 0,
+    "imglink": "https://cards.scryfall.io/png/front/3/0/309a6684-ecb3-491c-899a-3aa15a51130b.png?1658363316",
+    "cardname": "Cryptic Spires",
+    "coloridentity": "I",
+    "isvalid": true
+    },
+]
+```
+
+### GET api/cards/:name
+
+Listagem de todos os cards cadastrados na aplicação que contém o nome informado. (Não Paginada)
+Exemplo de retorno:
+
+``` JSON
+[
+    {
+    "id": 0,
+    "imglink": "https://cards.scryfall.io/png/front/3/0/309a6684-ecb3-491c-899a-3aa15a51130b.png?1658363316",
+    "cardname": "Cryptic Spires",
+    "coloridentity": "I",
+    "isvalid": true
+    },
+]
+```
