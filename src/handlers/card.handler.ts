@@ -20,6 +20,7 @@ export const listCards = async(req: Request, res: Response) =>{
 export const findCardsByName = async(req: Request, res: Response) =>{
     console.log("GET api/cards/search/:name")
     const cardName = req.params.name || ''
+    console.log(cardName)
 
     if(typeof cardName !== "string" || cardName == ''){
         console.log("couldn't get name param value")

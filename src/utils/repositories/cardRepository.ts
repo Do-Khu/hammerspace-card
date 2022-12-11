@@ -54,7 +54,7 @@ export class CardRepository{
         await this.init()
         // TODO: Fazer paginação deste metodo
         const cards = await this.cardRepository.find({
-            where: { cardname: Like(cardName) },
+            where: { cardname: Like(`%${cardName}%`) },
             take: 10
         })
         .catch((err) => {
