@@ -5,6 +5,6 @@ const router = express.Router()
 
 router.get('/cards', listCards)
 router.get('/cards/:id', getCard)
-router.get('/cards/:name', findCardsByName)
+router.get('/cards/search/:name', findCardsByName)
 
 export default router

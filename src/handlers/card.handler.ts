@@ -18,7 +18,7 @@ export const listCards = async(req: Request, res: Response) =>{
 }
 
 export const findCardsByName = async(req: Request, res: Response) =>{
-    console.log("GET api/cards/:name")
+    console.log("GET api/cards/search/:name")
     const cardName = req.params.name || ''
 
     if(typeof cardName !== "string" || cardName == ''){
