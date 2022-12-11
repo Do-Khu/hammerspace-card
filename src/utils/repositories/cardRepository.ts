@@ -1,4 +1,4 @@
-import { Repository } from "typeorm";
+import { Like, Repository } from "typeorm";
 import { Card } from "../../models/entities/card.model";
 import { db } from "../database.utils"
 
@@ -54,7 +54,7 @@ export class CardRepository{
         await this.init()
         // TODO: Fazer paginação deste metodo
         const cards = await this.cardRepository.find({
-            where: { cardname: cardName },
+            where: { cardname: Like(cardName) },
             take: 10
         })
         .catch((err) => {
