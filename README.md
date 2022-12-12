@@ -9,16 +9,17 @@ Este é um projeto de estudos de desenvolvimento de aplicações com a utilizaç
 Portanto, o Hammerspace tem como escopo o controle de estoques de cartas de magic de um jogador, bem como seus decks. Como proposta inicial:
 
 - Um jogador pode criar uma conta
-- Um jogador pode criar um deck dividindo as cartas em Mainboard, Sideboard e Considerando
-- Um jogador pode pesquisar e adicionar cartas a um deck, ao adicionar uma carta o usuário pode informar se possui aquela carta ou não
-- Ao adicionar uma carta que o usuário possui a um deck o sistema deve informar que ele possui essa carta em estoque e se ela está sendo usada e por qual deck
+- Um jogador pode criar um deck para o formato 'Commander' de MTG
+- Um jogador pode pesquisar e adicionar cartas a um deck
+- Ao adicionar uma carta que o usuário possui a um deck o sistema deve associar essa carta em estoque ao deck
 - O jogador pode adicionar cartas ao estoque sem estarem vinculadas a um deck
-- O jogador deve ser capaz de verificar a lista de compras das cartas faltantes de um deck
+- O jogador deve ser capaz de verificar se ele precisa comprar alguma carta para finalizar a montagem de seu deck
 
-Atualmente a aplicação possui 2 microsserviços:
+Atualmente a aplicação possui 3 microsserviços:
 
 - **[api-gateway](https://github.com/Do-Khu/hammerspace-api)**: a porta de entrada da aplicação, todas as iterações externas devem ser feitas à esse microserviço que irá chamar os demais necessários para realizar os comandos requisitados. Atualmente está realizando o controle de: *Usuários*.
 - **[cards](https://github.com/Do-Khu/hammerspace-card)**: Microsserviço de consulta de cartas de magic.
+- **[storage](https://github.com/Do-Khu/hammerspace-storage)**: Microsserviço de gerenciamento de decks e cartas que o jogador possui.
 
 ## Consumindo o Serviço
 
@@ -58,7 +59,7 @@ Exemplo de retorno:
 ]
 ```
 
-### GET api/cards/:name
+### GET api/cards/search/:name
 
 Listagem de todos os cards cadastrados na aplicação que contém o nome informado. (Não Paginada)
 Exemplo de retorno:
